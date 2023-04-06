@@ -82,7 +82,7 @@
       <?php echo form_close(); ?>
 
 
-      <a href="<?php echo base_url('login'); ?>" class="text-center">I already have a membership</a>
+      <a href="<?php echo base_url('index.php/login'); ?>" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
