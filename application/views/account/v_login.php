@@ -77,11 +77,11 @@
       
 
         <p class="mb-1">
-          <a href="forgot-password.html">I forgot my password</a>
+        <a href="<?php echo base_url('index.php/register'); ?>" class="text-center" style="display: block; text-align: center;">Lupa Password</a>
         </p>
         <p class="mb-0">
         </div>
-        <a href="<?php echo base_url('index.php/register'); ?>" class="text-center">Register a new membership</a>
+        <a href="<?php echo base_url('index.php/register'); ?>" class="text-center">Membuat Akun</a>
         </p>
       </div>
       <!-- /.login-card-body -->

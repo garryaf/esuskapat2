@@ -74,7 +74,7 @@
             </div>
           </div>
           <!-- /.col -->
-          <div class="col-4">
+          <div class="col-5">
             <button type="submit" class="btn btn-primary btn-block">Pendaftaran</button>
           </div>
           <!-- /.col -->
@@ -82,7 +82,7 @@
       <?php echo form_close(); ?>
 
 
-      <a href="<?php echo base_url('index.php/login'); ?>" class="text-center">I already have a membership</a>
+      <a href="<?php echo base_url('index.php/login'); ?>" class="text-center">Sudah Punya Akun</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
