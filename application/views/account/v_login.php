@@ -33,6 +33,11 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
+    <div class="login-logo">
+    <a href="#">
+        <img src="<?= base_url('assets/img/logo.jpg'); ?>" alt="Logo" class="img-responsive" style="max-height: 100px;">
+    </a>
+</div>
       <a href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/index2.html"><b>ESUS</b>KAPAT</a>
     </div>
     <!-- /.login-logo -->

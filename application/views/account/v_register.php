@@ -25,13 +25,13 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/index2.html"><b>ESUS</b>KAPAT</a>
+      <a href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/index2.html"><b>ESUS</b>KAPAT</a> 
     </div>
   <div class="card">
     <div class="card-body register-card-body">
     <p class="login-box-msg" style="text-align: center; font-size: 1.2em; color: #ADD8E6;">PENDAFTARAN</p>
 
-      <?php echo form_open('register'); ?>
+    <form class="form-horizontal" action="<?php echo base_url('register/save');?>" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
@@ -75,11 +75,11 @@
           </div>
           <!-- /.col -->
           <div class="col-5">
-            <button type="submit" class="btn btn-primary btn-block">Pendaftaran</button>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
         </div>
-      <?php echo form_close(); ?>
+        </form>
 
 
       <a href="<?php echo base_url('index.php/login'); ?>" class="text-center">Sudah Punya Akun</a>
