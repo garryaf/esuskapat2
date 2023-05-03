@@ -9,17 +9,18 @@ class Register extends CI_Controller {
 //		$this->load->helper(array('url','form'));
 //		$this->load->model('m_account'); //call model
 //	}
-public function __construct() {
+public function __construct() 
+{
 	parent::__construct();
 	$this->load->model('M_Register');
 }    
 
-public function index() {
-	$data = array();
+public function input() {
+//	$data = array();
 //	$data['get_level']=$this->Register_model->get_all_level();
-	$this->load->view('account/v_register', $data);
+	$this->load->view('account/v_register'); //$data);
+}
 
-  }
 //	public function index() {
  
 //		$this->form_validation->set_rules('name', 'NAME','required');
@@ -41,7 +42,8 @@ public function index() {
 //			$pesan['message'] =    "Pendaftaran berhasil";
 			 
 //			$this->load->view('account/v_success',$pesan);
-public function save() {
+public function simpan() 
+{
 
 	$data = array();
 	$data['nama'] = $this->input->post('nama');
@@ -52,30 +54,28 @@ public function save() {
 	$data['update_at'] = date('Y-m-d H:i:s');
 	$data['last_login'] = date('Y-m-d H:i:s');
 
-	$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-	$this->form_validation->set_rules('username', 'Username', 'trim|required');
-	$this->form_validation->set_rules('password', 'password', 'trim|required');
-	$this->form_validation->set_rules('level_id', 'level', 'trim|required');
+	//$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+	//$this->form_validation->set_rules('username', 'Username', 'trim|required');
+	//$this->form_validation->set_rules('password', 'password', 'trim|required');
+	//$this->form_validation->set_rules('level_id', 'level', 'trim|required');
 
-	if ($this->form_validation->run() == true) {
-				
-		
-		$result = $this->M_Register->save_register_info($data);
+	if ($password != $retype_password) {
+        echo "Password tidak sesuai";
+        return;
+    }
+	 $data = array(
+        'nama' => $nama,
+        'email' => $email,
+        'username' => $username,
+        'password' => password_hash($password, PASSWORD_DEFAULT),
+        'create_at' => date('Y-m-d H:i:s'),
+        'update_at' => date('Y-m-d H:i:s')
+    );
 
-		if ($result) {
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data Berhasil disimpan Silahkan login... <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
-			redirect('login');
-		} else {
-			$this->session->set_flashdata('message', 'Data Kamu Galat !');
-			redirect('login');
-		}
-	} else {
-		$this->session->set_flashdata('message', validation_errors());
-		redirect('login');
-	
+    $this->M_Register->simpan($data);
 
+    echo "Data user berhasil disimpan";
 
+  }
+ }
 
-		}
-	}
-}

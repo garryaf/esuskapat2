@@ -31,7 +31,7 @@
     <div class="card-body register-card-body">
     <p class="login-box-msg" style="text-align: center; font-size: 1.2em; color: #ADD8E6;">PENDAFTARAN</p>
 
-    <form class="form-horizontal" action="<?php echo base_url('register/save');?>" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" action="<?php echo site_url('Register');?>" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
