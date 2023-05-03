@@ -27,11 +27,18 @@
     <div class="login-logo">
       <a href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/index2.html"><b>ESUS</b>KAPAT</a> 
     </div>
+				<?php 
+				if($this->session->flashdata('error') !='')
+				{
+					echo '<div class="alert alert-danger" role="alert">';
+					echo $this->session->flashdata('error');
+					echo '</div>';
+				}
+				?>
   <div class="card">
     <div class="card-body register-card-body">
     <p class="login-box-msg" style="text-align: center; font-size: 1.2em; color: #ADD8E6;">PENDAFTARAN</p>
-
-    <form class="form-horizontal" action="<?php echo site_url('Register');?>" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" action="<?php echo site_url('index.php/register/proses');?>" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
