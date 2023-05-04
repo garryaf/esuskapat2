@@ -1,4 +1,7 @@
 {
+    "editor.fontSize": 12,
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.iconTheme": "vscode-icons",
     "sqltools.connections": [
         {
             "mysqlOptions": {

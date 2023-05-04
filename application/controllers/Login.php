@@ -2,23 +2,37 @@
 defined('BASEPATH') OR exit('No direct script access allowed');  
 
 class Login extends CI_Controller {
+    function __construct()
+	{
+		parent::__construct();
+		$this->load->model('M_Register');
+	}
 
-    public function index() {  
-        // Fungsi Login  
-        $valid = $this->form_validation;  
-        $username = $this->input->post('username');  
-        $password = $this->input->post('password');  
-        $valid->set_rules('username','Username','required');  
-	    $valid->set_rules('password','Password','required');  
+    public function index() 
+    {
+		$this->load->view('account/v_login');
+	}
+    public function proses()
+	{
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		if($this->M_Regoster->login_user($username,$password))
+		{
+			redirect('home');
+		}
+		else
+		{
+			$this->session->set_flashdata('error','Username & Password salah');
+			redirect('login');
+		}
+	}
 
-        if($valid->run()) {  
-            $this->simple_login->login($username,$password, base_url('dashboard'), base_url('login'));  
-        }  
-    	// End fungsi login  
-        $this->load->view('account/v_login');  
-    }  
-
-    public function logout(){  
-        $this->simple_login->logout();  
-    }                 
+	public function logout()
+	{
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('nama');
+		$this->session->unset_userdata('is_login');
+		redirect('login');
+	}
+             
 }  
