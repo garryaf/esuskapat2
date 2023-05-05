@@ -40,8 +40,24 @@
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Silahkan Login</p>
+        <?php 
+				if($this->session->flashdata('error') !='')
+				{
+					echo '<div class="alert alert-danger" role="alert">';
+					echo $this->session->flashdata('error');
+					echo '</div>';
+				}
+				?>
 
+				<?php 
+				if($this->session->flashdata('success_register') !='')
+				{
+					echo '<div class="alert alert-info" role="alert">';
+					echo $this->session->flashdata('success_register');
+					echo '</div>';
+				}
+				?>
         <form action="<?=base_url();?>index.php/login/proses" method="post">
           <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username">
