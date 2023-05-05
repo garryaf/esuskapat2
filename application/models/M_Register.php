@@ -7,7 +7,7 @@ class M_Register extends CI_Model{
         parent::__construct();
 	}
  
-    public function register($username, $email, $password, $level_id) {
+    public function register($username, $email, $password) {
         $data = array(
             'username' => $username,
             'email' => $email,
@@ -15,11 +15,11 @@ class M_Register extends CI_Model{
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         );
-        $this->db->insert('tb_user', $data);
+        $this->db->insert('users', $data);
     }
     function login_user($username,$password)
 	{
-        $query = $this->db->get_where('tb_user',array('username'=>$username));
+        $query = $this->db->get_where('users',array('username'=>$username));
         if($query->num_rows() > 0)
         {
             $data_user = $query->row();
@@ -42,7 +42,8 @@ class M_Register extends CI_Model{
     {
         if(empty($this->session->userdata('is_login')))
         {
-			redirect('login');
+			redirect('v_login');
 		}
     }
 }
+?>

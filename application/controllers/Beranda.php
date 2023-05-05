@@ -8,3 +8,4 @@ class Beranda extends CI_Controller {
 		$this->load->view('account/beranda');
 	}
 }
+?>

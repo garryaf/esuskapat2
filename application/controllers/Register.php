@@ -7,6 +7,8 @@ class Register extends CI_Controller {
 public function __construct() 
 {
 	parent::__construct();
+	$this->load->library(array('form_validation'));
+	$this->load->helper(array('url','form'));
 	$this->load->model('M_Register');
 }    
 
@@ -22,7 +24,6 @@ public function proses()
     $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[tb_user.email]');
     $this->form_validation->set_rules('password', 'Password', 'trim|required');
     $this->form_validation->set_rules('retype_password', 'Retype Password', 'trim|required|matches[password]');
-    $this->form_validation->set_rules('level_id', 'Level', 'trim|required');
 
     if ($this->form_validation->run() == true) {
         $username = $this->input->post('username');
@@ -30,10 +31,10 @@ public function proses()
         $password = $this->input->post('password');
         $this->M_Register->register($username, $email, $password);
         $this->session->set_flashdata('success_register', 'Proses Pendaftaran User Berhasil');
-        redirect('login');
+        redirect('v_login');
     } else {
         $this->session->set_flashdata('error', validation_errors());
-        redirect('register');
+        redirect('v_register');
     }
  }
 }
@@ -41,3 +42,4 @@ public function proses()
 
 
 
+?>

@@ -12,3 +12,4 @@ class Dashboard extends CI_Controller {
         $this->load->view('account/v_dashboard');  
     }
 }  
+?>

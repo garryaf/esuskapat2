@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ESUSKAPAT | Log in</title>
+  <title>ESUSKAPAT | Register</title>
   <link href='<?=base_url("assets/uploads/images/avatar.png"); ?>' rel='shortcut icon' type='image/x-icon' />
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +35,7 @@
   <div class="card">
     <div class="card-body register-card-body">
     <p class="login-box-msg" style="text-align: center; font-size: 1.2em; color: #ADD8E6;">PENDAFTARAN</p>
-    <form class="form-horizontal" action="<?php echo site_url('index.php/register/proses');?>" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" action="<?php echo base_url(); ?>index.php/register/proses" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">

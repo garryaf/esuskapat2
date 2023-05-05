@@ -16,14 +16,14 @@ class Login extends CI_Controller {
 	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		if($this->M_Regoster->login_user($username,$password))
+		if($this->M_Register->login_user($username,$password))
 		{
-			redirect('home');
+			redirect('v_home');
 		}
 		else
 		{
 			$this->session->set_flashdata('error','Username & Password salah');
-			redirect('login');
+			redirect('v_login');
 		}
 	}
 
@@ -32,7 +32,8 @@ class Login extends CI_Controller {
 		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('nama');
 		$this->session->unset_userdata('is_login');
-		redirect('login');
+		redirect('v_login');
 	}
              
 }  
+?>
