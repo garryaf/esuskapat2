@@ -21,9 +21,8 @@ public function index()
 public function proses() 
  {
 	$this->form_validation->set_rules('username', 'Username', 'trim|required');
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[tb_user.email]');
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
     $this->form_validation->set_rules('password', 'Password', 'trim|required');
-    $this->form_validation->set_rules('retype_password', 'Retype Password', 'trim|required|matches[password]');
 
     if ($this->form_validation->run() == true) {
         $username = $this->input->post('username');
@@ -31,15 +30,10 @@ public function proses()
         $password = $this->input->post('password');
         $this->M_Register->register($username, $email, $password);
         $this->session->set_flashdata('success_register', 'Proses Pendaftaran User Berhasil');
-        redirect('v_login');
+        redirect('login');
     } else {
         $this->session->set_flashdata('error', validation_errors());
-        redirect('v_register');
+        redirect('register');
     }
  }
 }
-
-
-
-
-?>

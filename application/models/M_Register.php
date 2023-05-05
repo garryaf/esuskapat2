@@ -12,8 +12,8 @@ class M_Register extends CI_Model{
             'username' => $username,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_BCRYPT),
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
+            'create_at' => date('Y-m-d H:i:s'),
+            'update_at' => date('Y-m-d H:i:s')
         );
         $this->db->insert('users', $data);
     }
@@ -42,7 +42,7 @@ class M_Register extends CI_Model{
     {
         if(empty($this->session->userdata('is_login')))
         {
-			redirect('v_login');
+			redirect('login');
 		}
     }
 }
